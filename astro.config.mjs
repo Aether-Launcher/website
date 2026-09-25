@@ -19,8 +19,6 @@ export default defineConfig({
 			},
 			head: [
 				{
-					// Aether is dark-only. Pin the stored preference before Starlight's
-					// ThemeProvider script reads it, so it always resolves to dark.
 					tag: 'script',
 					content: "localStorage.setItem('starlight-theme', 'dark');",
 				},

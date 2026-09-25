@@ -3,12 +3,22 @@
 	import Hero from './Hero.svelte';
 	import FeatureList from './FeatureList.svelte';
 
-	let { heroSrc, heroWidth, heroHeight, appleIcon, linuxIcon, windowsIcon } = $props();
+	let {
+		heroSrc,
+		heroWidth,
+		heroHeight,
+		appleIcon,
+		linuxIcon,
+		windowsIcon,
+		activityMonitorSrc,
+		activityMonitorWidth,
+		activityMonitorHeight
+	} = $props();
 </script>
 
 <TopBar />
 <Hero {heroSrc} {heroWidth} {heroHeight} {appleIcon} {linuxIcon} {windowsIcon} />
-<FeatureList />
+<FeatureList {activityMonitorSrc} {activityMonitorWidth} {activityMonitorHeight} />
 
 <style>
 	:global(html),

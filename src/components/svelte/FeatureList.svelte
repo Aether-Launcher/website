@@ -1,6 +1,8 @@
 <script>
 	const FEATURES = ['Blazing Fast', 'Customizable UI', 'Extensible Architecture', 'Capability-Based Extensions'];
 
+	let { activityMonitorSrc, activityMonitorWidth, activityMonitorHeight } = $props();
+
 	let activeIndex = $state(0);
 
 	function selectItem(index) {
@@ -36,6 +38,17 @@
 			</li>
 		{/each}
 	</ul>
+
+	{#if activeIndex === 0 && activityMonitorSrc}
+		<img
+			class="features-screenshot"
+			src={activityMonitorSrc}
+			width={activityMonitorWidth}
+			height={activityMonitorHeight}
+			alt="Aether's memory footprint in macOS Activity Monitor"
+			loading="lazy"
+		/>
+	{/if}
 </section>
 
 <style>
@@ -93,5 +106,14 @@
 
 	.features-item.is-active .features-check {
 		color: var(--sl-color-accent);
+	}
+
+	.features-screenshot {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-top: 3.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--sl-color-gray-5);
 	}
 </style>

@@ -2,6 +2,7 @@
 import { getImage } from 'astro:assets';
 import Home from '../components/svelte/Home.svelte';
 import appScreenshot from '../assets/hero.png';
+import activityMonitor from '../assets/activity-monitor.png';
 import appleIcon from '../assets/apple.svg?url';
 import linuxIcon from '../assets/linux.svg?url';
 import windowsIcon from '../assets/windows.svg?url';
@@ -9,6 +10,7 @@ import logo from '../assets/logo.png';
 import '../styles/custom.css';
 
 const optimizedHero = await getImage({ src: appScreenshot, width: 1000 });
+const optimizedActivityMonitor = await getImage({ src: activityMonitor, width: 1600 });
 const ogImageUrl = new URL(logo.src, Astro.site);
 ---
 
@@ -33,6 +35,9 @@ const ogImageUrl = new URL(logo.src, Astro.site);
 			appleIcon={appleIcon}
 			linuxIcon={linuxIcon}
 			windowsIcon={windowsIcon}
+			activityMonitorSrc={optimizedActivityMonitor.src}
+			activityMonitorWidth={optimizedActivityMonitor.attributes.width}
+			activityMonitorHeight={optimizedActivityMonitor.attributes.height}
 			client:load
 		/>
 	</body>
